@@ -73,35 +73,21 @@
             <div class="form-container sign-in" >
 
                 <form action="php_files/login.php" method="POST" id="signin_box">
-                    <h1>Sign In</h1>
-                    <div class="social-icons">
-                        <a href="#" class="icons"><i class="bx bxl-google"></i></a>
-                        <a href="#" class="icons"><i class="bx bxl-facebook"></i></a>
-                        <a href="#" class="icons"><i class="bx bxl-github"></i></a>
-                        <a href="#" class="icons"><i class="bx bxl-linkedin"></i></a>
-                    </div>
-                    <span><b>Login With Email & Password</b></span>
-                    <input type="email" name="email" placeholder="Enter E-mail" required>
+                    <h1>Reset Your Password</h1>
                     <div class="password-container">
                         <input type="password" id="login-password" name="password" placeholder="Enter Password"
                             required>
                         <i class="bx bx-show eye-icon" id="login-eye"
                             onclick="togglePassword('login-password', 'login-eye')"></i>
                     </div>
-                    <a href="#" data-toggle="modal" data-target="#passwordReset" id="passwordReset"><b> Forget Password?</b></a>
-                    <button type="submit">Sign In</button>
-                </form>
-
-
-                <!-- Reset Box -->
-                <form action="php_files/login.php" method="POST" id="reset_box" style="display: none;">
-                    <h1>Reset</h1>
-                    <span><b>Login With Email & Password</b></span>
-                    <input type="email" name="email" placeholder="Enter E-mail" required>
+                    <div class="password-container">
+                        <input type="password" id="login-password2" name="confirm_password" placeholder="Confirm Password"
+                            required>
+                        <i class="bx bx-show eye-icon" id="login-eye2"
+                            onclick="togglePassword('login-password2', 'login-eye')"></i>
+                    </div>
                     <button type="submit">Submit</button>
-                    <button type="button" id="back">Back</button>
                 </form>
-
             </div>
 
 
@@ -114,13 +100,12 @@
                     </div>
 
                     <div class="toggle-panel toggle-right">
-                        <h1>Hii User's</h1>
+                        <h1>Welcome User</h1>
                         <h5>
                             <p>
-                                <strong>Join Our Culture </strong>
+                                <strong>Reset the password</strong>
                             </p>
                         </h5>
-                        <button class="text-light" id="register">Sign Up</button>
                     </div>
                 </div>
             </div>
