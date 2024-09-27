@@ -43,6 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             echo "Invalid email or password.";
+            echo $_POST['password'];
+            echo $row['u_pw'];
         }
     } else {
         echo "No user found with this email.";

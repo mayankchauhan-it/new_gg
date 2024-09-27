@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,14 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
     <link rel="stylesheet" href="login/style.css">
-
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- https://boxicons.com/ -->
-
-    <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
 
     <title>Login & Register Page ->> Our Culture</title>
 
@@ -60,17 +58,15 @@
                     <input type="text" name="name" placeholder="Name" required>
                     <input type="email" name="email" placeholder="Enter E-mail" required>
                     <div class="password-container">
-                        <input type="password" id="signup-password" name="password" placeholder="Enter Password"
-                            required>
-                        <i class="bx bx-show eye-icon" id="signup-eye"
-                            onclick="togglePassword('signup-password', 'signup-eye')"></i>
+                        <input type="password" id="signup-password" name="password" placeholder="Enter Password" required>
+                        <i class="bx bx-show eye-icon" id="signup-eye" onclick="togglePassword('signup-password', 'signup-eye')"></i>
                     </div>
                     <button type="submit">Sign Up</button>
                 </form>
             </div>
 
             <!-- Sign In -->
-            <div class="form-container sign-in" >
+            <div class="form-container sign-in">
 
                 <form action="php_files/login.php" method="POST" id="signin_box">
                     <h1>Sign In</h1>
@@ -83,27 +79,22 @@
                     <span><b>Login With Email & Password</b></span>
                     <input type="email" name="email" placeholder="Enter E-mail" required>
                     <div class="password-container">
-                        <input type="password" id="login-password" name="password" placeholder="Enter Password"
-                            required>
-                        <i class="bx bx-show eye-icon" id="login-eye"
-                            onclick="togglePassword('login-password', 'login-eye')"></i>
+                        <input type="password" id="login-password" name="password" placeholder="Enter Password" required>
+                        <i class="bx bx-show eye-icon" id="login-eye" onclick="togglePassword('login-password', 'login-eye')"></i>
                     </div>
                     <a href="#" data-toggle="modal" data-target="#passwordReset" id="passwordReset"><b> Forget Password?</b></a>
                     <button type="submit">Sign In</button>
                 </form>
 
-
                 <!-- Reset Box -->
-                <form action="php_files/login.php" method="POST" id="reset_box" style="display: none;">
-                    <h1>Reset</h1>
-                    <span><b>Login With Email & Password</b></span>
+                <form action="php_files/reset_link_generator.php" method="POST" id="reset_box" style="display: none;">
+                    <h1>Reset Password</h1>
                     <input type="email" name="email" placeholder="Enter E-mail" required>
                     <button type="submit">Submit</button>
-                    <button type="button" id="back">Back</button>
+                    <button type="button" id="back">Cancel</button>
                 </form>
 
             </div>
-
 
             <div class="toggle-container">
                 <div class="toggle">
@@ -124,10 +115,9 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Password Reset Modal -->
         </div>
     </div>
+
     <script src="login/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
@@ -144,21 +134,24 @@
                 eyeIcon.classList.add('bx-show');
             }
         }
-    </script>
 
-    <script>
-        $(document).ready(function(){
-            $("#passwordReset").click(function(){
+        $(document).ready(function() {
+            $("#passwordReset").click(function() {
                 $("#signin_box").hide();
                 $("#reset_box").show()
-            })
+            });
 
-
-            $("#back").click(function(){
+            $("#back").click(function() {
                 $("#signin_box").show();
                 $("#reset_box").hide()
-            })
-        })
+            });
+
+           // Show alert if there is a reset link message
+            <?php if (isset($_SESSION['message'])): ?>
+                alert("<?php echo $_SESSION['message']; ?>");
+                <?php unset($_SESSION['message']); ?> // Clear the message after displaying
+            <?php endif; ?>
+        });
     </script>
 
 </body>

@@ -55,9 +55,6 @@
                     </div>
                     <!-- <i class="fa fa-user fa-2x text-primary"></i> -->
                 </a>
-                
-                <a href="../php_files/logout.php"><button class="btn btn-danger ms-2 btn-sm">Logout</button></a>
-                
             </li>
         </ul>
     </div>

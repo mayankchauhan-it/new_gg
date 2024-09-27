@@ -18,42 +18,37 @@
 </head>
 
 <body class="homepage2">
-  <!--==============================
-	Preloader
-	==============================-->
-  <!-- <div class="preloader">
+  <!-- Pre Loader -->
+  <div class="preloader">
     <button class="vs-btn preloaderCls">Cancel Preloader </button>
     <div class="preloader-inner">
       <img src="assets/images/gg-icon.png" alt="logo">
       <span class="loader"></span>
     </div>
-  </div> -->
+  </div>
+  <!-- Pre Loader -->
 
 
+  <!-- header component -->
   <?php
       include 'components/header.php'
   ?>
-  <!--==============================
-    Mobile Menu
-  ============================== -->
+  <!-- header component  -->
+
+  <!-- Mobile Menu -->
   <?php
       include 'components/mobile_menu.php'
   ?>
 
-  <!--==============================
-      Offcanvas
-  ============================== -->
+  <!-- Offcanvas -->
   <?php
       include 'components/offcanvas.php'
   ?>
 
-  <!--==============================
-      Slider Section
-  ============================== -->
+  <!-- Slider Section -->
   <?php
       include 'components/slider.php'
   ?>
-
 
   <!-- About Area Start -->
   <section class="about space-top space-extra-bottom">
@@ -107,7 +102,6 @@
       include 'components/counter.php'
   ?>
   <!-- Counter Area End -->
-
 
   <section class="service smoke-bg space">
     <div class="container">
@@ -179,13 +173,11 @@
     </div>
   </section>
 
-
   <!-- Upcoming Events -->
   <?php
       include 'components/upcoming_events.php'
   ?>
-
-
+  <!-- Upcoming Events -->
 
   <!-- Feature Area -->
   <section class="feature-layout1">
@@ -486,255 +478,6 @@
     </div>
   </section>
   <!-- Gallery Area End -->
-
-
-  <!-- Testimonial Area -->
-  <!-- <section class="smoke-bg space-top space-bottom overflow-hidden">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mx-auto">
-          <div class="title-area text-center">
-            <span class="sec-subtitle2">Testimonials</span>
-            <h2 class="sec-title">Our Clint’s Feedback And Reviews</h2>
-          </div>
-        </div>
-      </div>
-      <div class="test-wrap1">
-        <div class="testi-slide-btns">
-          <button class="vs-btn prev slidebtn1" data-slick-prev="#testi-slider1">
-            <i class="far fa-arrow-left"></i>
-          </button>
-          <button class="vs-btn next slidebtn1" data-slick-next="#testi-slider1">
-            <i class="far fa-arrow-right"></i>
-          </button>
-        </div>
-        <div class="testi-thumb">
-          <img src="assets/img/testimonials/testi-thumb-1.jpg" alt="testi thumb 1">
-        </div>
-        <div class="vs-carousel row" data-slide-show="2" data-lg-slide-show="2" data-md-slide-show="1" id="testi-slider1">
-          <div class="col-auto">
-            <div class="testi-style1">
-              <div class="testi-icon">
-                <img src="assets/img/icons/t-1-1.svg" alt="testi icon">
-              </div>
-              <div class="testi-author">
-                <div class="author-img"><img src="assets/img/user/user-img-1-1.jpg" alt="Testimonial"></div>
-                <div class="media-body">
-                  <h3 class="testi-name">Rivanur R. Rafi</h3>
-                  <div class="testi-degi">CEO, EventsBD</div>
-                </div>
-              </div>
-              <div class="testi-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <p class="testi-text">“Varius sit amet mattis vulputate. Nulla posuere sollicitudin on The aliquam
-                ultrices sagittis orci a. Nunc non blandit massa enim. Fermentum posuere urna nec tincidunt praesent
-                semper feugiat nibh. Dolor magna eget est lorem ipsum dolor sit amet endrerit dolor.”</p>
-            </div>
-          </div>
-          <div class="col-auto">
-            <div class="testi-style1">
-              <div class="testi-icon">
-                <img src="assets/img/icons/t-1-1.svg" alt="testi icon">
-              </div>
-              <div class="testi-author">
-                <div class="author-img"><img src="assets/img/user/user-img-1-2.jpg" alt="Testimonial"></div>
-                <div class="media-body">
-                  <h3 class="testi-name">Mathias Werfel</h3>
-                  <div class="testi-degi">CEO, EventsBD</div>
-                </div>
-              </div>
-              <div class="testi-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <p class="testi-text">“Varius sit amet mattis vulputate. Nulla posuere sollicitudin on The aliquam
-                ultrices sagittis orci a. Nunc non blandit massa enim. Fermentum posuere urna nec tincidunt praesent
-                semper feugiat nibh. Dolor magna eget est lorem ipsum dolor sit amet endrerit dolor.”</p>
-            </div>
-          </div>
-          <div class="col-auto">
-            <div class="testi-style1">
-              <div class="testi-icon">
-                <img src="assets/img/icons/t-1-1.svg" alt="testi icon">
-              </div>
-              <div class="testi-author">
-                <div class="author-img"><img src="assets/img/user/user-img-1-3.jpg" alt="Testimonial"></div>
-                <div class="media-body">
-                  <h3 class="testi-name">Janina Hartmann</h3>
-                  <div class="testi-degi">CEO, EventsBD</div>
-                </div>
-              </div>
-              <div class="testi-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <p class="testi-text">“Varius sit amet mattis vulputate. Nulla posuere sollicitudin on The aliquam
-                ultrices sagittis orci a. Nunc non blandit massa enim. Fermentum posuere urna nec tincidunt praesent
-                semper feugiat nibh. Dolor magna eget est lorem ipsum dolor sit amet endrerit dolor.”</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-  <!-- Testimonial Area End -->
-  <!-- Blog Area -->
-  <!-- <section class="space-top space-extra-bottom">
-    <div class="container">
-      <div class="row justify-content-between align-items-end">
-        <div class="col-lg-6">
-          <div class="title-area">
-            <span class="sec-subtitle2">Blog And News</span>
-            <h2 class="sec-title">Our Latest Blog And Latest News</h2>
-          </div>
-        </div>
-        <div class="col-auto">
-          <div class="blog-slide-btns title-area">
-            <button class="vs-btn" data-slick-prev="#blog-slider1">
-              <i class="far fa-arrow-left"></i>
-            </button>
-            <button class="vs-btn" data-slick-next="#blog-slider1">
-              <i class="far fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="row vs-carousel" data-slide-show="3" data-md-slide-show="2" id="blog-slider1">
-        <div class="col-lg-4">
-          <div class="vs-blog blog-style1">
-            <div class="blog-img">
-              <a href="blog-details.html">
-                <img class="blog-img__item" src="assets/img/blog/blog-8-1.jpg" alt="blog">
-                <img class="blog-img__item" src="assets/img/blog/blog-8-1.jpg" alt="blog">
-              </a>
-            </div>
-            <div class="blog-content">
-              <div class="blog-metas">
-                <span class="blog-date">20 <span>January</span></span>
-                <ul>
-                  <li>
-                    <a class="blog-meta" href="blog-details.html">
-                      <i class="fas fa-user"></i> By Admin
-                    </a>
-                  </li>
-                  <li>
-                    <a class="blog-meta" href="blog-details.html">
-                      <i class="fas fa-comments"></i> (03) Comments
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <h3 class="blog-title h5"><a href="blog-details.html">Global Business Goal Make
-                  Life Easy From Tech</a></h3>
-              <a class="blog-link" href="blog-details.html">Read More<i class="far fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="vs-blog blog-style1">
-            <div class="blog-img">
-              <a href="blog-details.html">
-                <img class="blog-img__item" src="assets/img/blog/blog-8-2.jpg" alt="blog">
-                <img class="blog-img__item" src="assets/img/blog/blog-8-2.jpg" alt="blog">
-              </a>
-            </div>
-            <div class="blog-content">
-              <div class="blog-metas">
-                <span class="blog-date">20 <span>January</span></span>
-                <ul>
-                  <li>
-                    <a class="blog-meta" href="blog-details.html">
-                      <i class="fas fa-user"></i> By Admin
-                    </a>
-                  </li>
-                  <li>
-                    <a class="blog-meta" href="blog-details.html">
-                      <i class="fas fa-comments"></i> (03) Comments
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <h3 class="blog-title h5"><a href="blog-details.html">Advantage Enhancing Global Business
-                  Efficiency</a></h3>
-              <a class="blog-link" href="blog-details.html">Read More<i class="far fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="vs-blog blog-style1">
-            <div class="blog-img">
-              <a href="blog-details.html">
-                <img class="blog-img__item" src="assets/img/blog/blog-8-3.jpg" alt="blog">
-                <img class="blog-img__item" src="assets/img/blog/blog-8-3.jpg" alt="blog">
-              </a>
-            </div>
-            <div class="blog-content">
-              <div class="blog-metas">
-                <span class="blog-date">20 <span>January</span></span>
-                <ul>
-                  <li>
-                    <a class="blog-meta" href="blog-details.html">
-                      <i class="fas fa-user"></i> By Admin
-                    </a>
-                  </li>
-                  <li>
-                    <a class="blog-meta" href="blog-details.html">
-                      <i class="fas fa-comments"></i> (03) Comments
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <h3 class="blog-title h5"><a href="blog-details.html">Leveraging Technology for Global Business Ease</a>
-              </h3>
-              <a class="blog-link" href="blog-details.html">Read More<i class="far fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="vs-blog blog-style1">
-            <div class="blog-img">
-              <a href="blog-details.html">
-                <img class="blog-img__item" src="assets/img/blog/blog-8-4.jpg" alt="blog">
-                <img class="blog-img__item" src="assets/img/blog/blog-8-4.jpg" alt="blog">
-              </a>
-            </div>
-            <div class="blog-content">
-              <div class="blog-metas">
-                <span class="blog-date">20 <span>January</span></span>
-                <ul>
-                  <li>
-                    <a class="blog-meta" href="blog-details.html">
-                      <i class="fas fa-user"></i> By Admin
-                    </a>
-                  </li>
-                  <li>
-                    <a class="blog-meta" href="blog-details.html">
-                      <i class="fas fa-comments"></i> (03) Comments
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <h3 class="blog-title h5"><a href="blog-details.html">Leveraging Technology for Global Business Ease</a>
-              </h3>
-              <a class="blog-link" href="blog-details.html">Read More<i class="far fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-  <!-- Blog Area End -->
 
   <!-- Newsletter Area -->
   <?php

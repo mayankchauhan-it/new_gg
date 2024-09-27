@@ -1,18 +1,20 @@
+<?php
+include 'php_files/db_connections.php';
+
+// Include the password reset handler
+include 'php_files/handle_password_reset.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <link rel="shortcut icon" href="assets/images/gg-favicon.png">
     <link rel="stylesheet" href="login/style.css">
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- https://boxicons.com/ -->
-
-    <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
 
     <title>Login & Register Page ->> Our Culture</title>
 
@@ -69,22 +71,26 @@
                 </form>
             </div>
 
-            <!-- Sign In -->
-            <div class="form-container sign-in" >
+            <!-- Password Reset -->
+            <div class="form-container sign-in">
 
-                <form action="php_files/login.php" method="POST" id="signin_box">
+                <form method="POST" id="signin_box">
                     <h1>Reset Your Password</h1>
+
+
                     <div class="password-container">
                         <input type="password" id="login-password" name="password" placeholder="Enter Password"
                             required>
                         <i class="bx bx-show eye-icon" id="login-eye"
                             onclick="togglePassword('login-password', 'login-eye')"></i>
                     </div>
+
+
                     <div class="password-container">
-                        <input type="password" id="login-password2" name="confirm_password" placeholder="Confirm Password"
-                            required>
+                        <input type="password" id="login-password2" name="confirm_password"
+                            placeholder="Confirm Password" required>
                         <i class="bx bx-show eye-icon" id="login-eye2"
-                            onclick="togglePassword('login-password2', 'login-eye')"></i>
+                            onclick="togglePassword('login-password2', 'login-eye2')"></i>
                     </div>
                     <button type="submit">Submit</button>
                 </form>
@@ -114,7 +120,8 @@
         </div>
     </div>
     <script src="login/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
         function togglePassword(inputId, iconId) {
             var passwordInput = document.getElementById(inputId);
@@ -132,14 +139,14 @@
     </script>
 
     <script>
-        $(document).ready(function(){
-            $("#passwordReset").click(function(){
+        $(document).ready(function () {
+            $("#passwordReset").click(function () {
                 $("#signin_box").hide();
                 $("#reset_box").show()
             })
 
 
-            $("#back").click(function(){
+            $("#back").click(function () {
                 $("#signin_box").show();
                 $("#reset_box").hide()
             })

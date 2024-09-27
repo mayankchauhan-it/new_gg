@@ -1,11 +1,8 @@
 <?php
-// Database connection
-include './php_files/db_connections.php'; // Ensure this file is included
+include './php_files/db_connections.php';
 
-// Get the festival ID from the URL
 $festival_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-// Fetch festival details along with category name from the database
 $festival_query = "
     SELECT 
         f.festival_id AS id, 
@@ -33,17 +30,11 @@ if (!$festival) {
     exit;
 }
 
-
-
-// Assuming this part of the code is included after fetching the event details
 $date = new DateTime($festival['date']);
-$formatted_date = $date->format('d/m/Y'); // Formats the date as DD/MM/YYYY
+$formatted_date = $date->format('d/m/Y');
 
-// Store the original date for JavaScript countdown
-$original_date = $festival['date']; // Keeping the original date format (YYYY-MM-DD)
+$original_date = $festival['date'];
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -79,9 +70,7 @@ $original_date = $festival['date']; // Keeping the original date format (YYYY-MM
 </head>
 
 <body class="homepage2">
-    <!--==============================
-	Preloader
-	==============================-->
+    <!-- Pre Loader -->
     <div class="preloader">
         <button class="vs-btn preloaderCls">Cancel Preloader </button>
         <div class="preloader-inner">
@@ -89,11 +78,14 @@ $original_date = $festival['date']; // Keeping the original date format (YYYY-MM
             <span class="loader"></span>
         </div>
     </div>
+    <!-- Pre Loader -->
 
-
+    <!-- header component -->
     <?php
         include 'components/header.php'
     ?>
+    <!-- header component -->
+
     <!--==============================
     Mobile Menu
   ============================== -->
@@ -388,7 +380,7 @@ $original_date = $festival['date']; // Keeping the original date format (YYYY-MM
             $.fn.countdown = function () {
                 this.each(function () {
                     var $this = $(this),
-                        offerDate = new Date($this.data("offer-date")).getTime(); // Ensure correct date format
+                        offerDate = new Date($this.data("offer-date")).getTime(); 
                     function findElement(selector) {
                         return $this.find(selector);
                     }
@@ -401,18 +393,18 @@ $original_date = $festival['date']; // Keeping the original date format (YYYY-MM
                             minutes = Math.floor((timeDiff % 36e5) / 6e4),
                             seconds = Math.floor((timeDiff % 6e4) / 1e3);
 
-                        // Add leading zeros
+                        
                         days = days < 10 ? "0" + days : days;
                         hours = hours < 10 ? "0" + hours : hours;
                         minutes = minutes < 10 ? "0" + minutes : minutes;
                         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                        // Update the timer or handle expiration
+                        
                         if (timeDiff < 0) {
                             clearInterval(interval);
                             $this.addClass("expired");
-                            findElement(".message").css("display", "block"); // Show message when expired
-                            findElement(".day, .hour, .minute, .seconds").html("00"); // Reset to 00 on expiration
+                            findElement(".message").css("display", "block"); 
+                            findElement(".day, .hour, .minute, .seconds").html("00"); 
                         } else {
                             findElement(".day").html(days);
                             findElement(".hour").html(hours);
@@ -423,7 +415,7 @@ $original_date = $festival['date']; // Keeping the original date format (YYYY-MM
                 });
             };
 
-            // Start the countdown if offer-counter exists
+            
             if ($(".offer-counter").length) {
                 $(".offer-counter").countdown();
             }
@@ -431,44 +423,44 @@ $original_date = $festival['date']; // Keeping the original date format (YYYY-MM
             $('#qt').val($("#Q_T").val());
 
             function updateSubtotal() {
-                // Get the unit price
+                
                 var price = parseFloat($('.price').text());
 
-                // Get the current quantity
+                
                 var quantity = parseInt($('.quantity').val());
 
-                // Calculate subtotal
+                
                 var subtotal = price * quantity;
 
-                // Update subtotal and total in the table
+                
                 $('.subtotal').text(subtotal.toFixed(2));
                 $('#total').text(subtotal.toFixed(2));
                 $('#hiddenTotal').val(subtotal.toFixed(2));
                 $('#qt').val($("#Q_T").val());
             }
 
-            // Handle click on plus button
+            
             $('.plus').on('click', function () {
                 var quantityInput = $(this).siblings('.quantity');
                 var currentQuantity = parseInt(quantityInput.val());
 
-                // Increment quantity
+                
                 quantityInput.val(currentQuantity + 1);
 
-                // Update subtotal and total
+                
                 updateSubtotal();
             });
 
-            // Handle click on minus button
+            
             $('.minus').on('click', function () {
                 var quantityInput = $(this).siblings('.quantity');
                 var currentQuantity = parseInt(quantityInput.val());
 
-                // Decrement quantity only if greater than 1
+                
                 if (currentQuantity > 1) {
                     quantityInput.val(currentQuantity - 1);
 
-                    // Update subtotal and total
+                    
                     updateSubtotal();
                 }
             });

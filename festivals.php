@@ -23,38 +23,36 @@
 </head>
 
 <body class="homepage2">
-    <!--==============================
-	Preloader
-	==============================-->
+    <!-- Pre Loader -->
     <div class="preloader">
-    <button class="vs-btn preloaderCls">Cancel Preloader </button>
-    <div class="preloader-inner">
-      <img src="assets/images/gg-icon.png" alt="logo">
-      <span class="loader"></span>
+        <button class="vs-btn preloaderCls">Cancel Preloader </button>
+        <div class="preloader-inner">
+            <img src="assets/images/gg-icon.png" alt="logo">
+            <span class="loader"></span>
+        </div>
     </div>
-  </div>
+    <!-- Pre Loader -->
 
-
+    <!-- header component -->
     <?php
       include 'components/header.php'
-  ?>
-    <!--==============================
-    Mobile Menu
-  ============================== -->
+    ?>
+    <!-- header component  -->
+
+    <!-- Mobile Menu -->
     <?php
       include 'components/mobile_menu.php'
-  ?>
+    ?>
+    <!-- Mobile Menu -->
 
-    <!--==============================
-      Offcanvas
-  ============================== -->
+
+    <!-- Offcanvas -->
     <?php
       include 'components/offcanvas.php'
     ?>
+    <!-- Offcanvas -->
 
-    <!--==============================
-      Slider Section
-  ============================== -->
+    <!-- Slider Section -->
     <section>
         <div class="vs-carousel style1" data-autoplay="false" data-slide-show="1" data-fade="true" data-arrows="false">
             <div>
@@ -84,20 +82,21 @@
             </div>
         </div>
     </section>
+    <!-- Slider Section -->
 
-
+    <!-- Festivals Grid -->
     <?php
-        // Database connection
-        include './php_files/db_connections.php'; // Ensure this file is included
+        
+        include './php_files/db_connections.php'; 
 
-        // Pagination Variables
-        $limit = 7; // Number of festivals per page
-        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Current page
-        $offset = ($page - 1) * $limit; // Offset for the SQL query
+        
+        $limit = 7; 
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; 
+        $offset = ($page - 1) * $limit; 
 
-        // Query to fetch festivals with pagination
+        
         $festivals_query = "SELECT festival_id AS id, festival_name AS name, festival_description AS description, start_date AS date, '08:00:00' AS time, venue, price, image, category_id FROM festivals LIMIT $limit OFFSET $offset";
-        $festivals_result = $conn->query($festivals_query); // Use $db variable here
+        $festivals_result = $conn->query($festivals_query); 
 
         $festivals = [];
         if ($festivals_result->num_rows > 0) {
@@ -106,13 +105,13 @@
             }
         }
 
-        // Count total festivals for pagination
+        
         $total_festivals_query = "SELECT COUNT(*) as total FROM festivals";
-        $total_festivals_result = $conn->query($total_festivals_query); // Use $db variable here
+        $total_festivals_result = $conn->query($total_festivals_query); 
         $total_festivals = $total_festivals_result->fetch_assoc()['total'];
         $total_pages = ceil($total_festivals / $limit);
     ?>
-    <!-- Festivals Grid -->
+
     <div class="event-details space-top space-extra-bottom">
         <div class="container">
             <div class="row align-items-center justify-content-center justify-content-lg-between">
@@ -141,53 +140,56 @@
                     aria-labelledby="profile-tab" tabindex="0">
                     <div class="row">
                         <?php foreach ($festivals as $festival) { ?>
-                            <div class="col-md-6 col-lg-4 filter-item Festival">
-                                <div class="event-style1">
-                                    <div class="event-img">
-                                        <img src="assets/img/<?php echo $festival['image']; ?>"
-                                            alt="<?php echo $festival['name']; ?>">
-                                        <div class="event-tags">
-                                            <a href="event-details.html">Festival</a>
-                                        </div>
-                                        <div class="event-date">
-                                            <span>
-                                                <?php echo date('d', strtotime($festival['date'])); ?>
-                                            </span>
-                                            <?php echo date('F', strtotime($festival['date'])); ?>
-                                        </div>
+                        <div class="col-md-6 col-lg-4 filter-item Festival">
+                            <div class="event-style1">
+                                <div class="event-img">
+                                    <img src="assets/img/<?php echo $festival['image']; ?>"
+                                        alt="<?php echo $festival['name']; ?>">
+                                    <div class="event-tags">
+                                        <a href="event-details.html">Festival</a>
                                     </div>
-                                    <div class="event-content">
-                                        <div class="event-meta">
-                                            <ul>
-                                                <li>
-                                                    <span><i class="fas fa-clock"></i>
-                                                        <?php echo $festival['time']; ?>
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <span><i class="fas fa-map-marker-alt"></i>
-                                                        <?php echo $festival['venue']; ?>
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    <div class="event-date">
+                                        <span>
+                                            <?php echo date('d', strtotime($festival['date'])); ?>
+                                        </span>
+                                        <?php echo date('F', strtotime($festival['date'])); ?>
+                                    </div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-meta">
+                                        <ul>
+                                            <li>
+                                                <span><i class="fas fa-clock"></i>
+                                                    <?php echo $festival['time']; ?>
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span><i class="fas fa-map-marker-alt"></i>
+                                                    <?php echo $festival['venue']; ?>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
 
-                                        <!-- Dynamic Festival Detail Page Target -->
-                                        <h3 class="event-title h5">
-                                            <a href="festival-details.php?id=<?php echo $festival['id']; ?>"><?php echo $festival['name']; ?></a>
-                                        </h3>
-                                        <p class="event-text">
-                                            <?php echo $festival['description']; ?>
-                                        </p>
-                                        <div class="event-footer">
-                                            <a href="festival-details.php?id=<?php echo $festival['id']; ?>" class="event-link">Tickets & Details</a>
-                                            <span class="event-price">Price: <span>&#8377
-                                                    <?php echo $festival['price']; ?>
-                                                </span></span>
-                                        </div>
+                                    <!-- Dynamic Festival Detail Page Target -->
+                                    <h3 class="event-title h5">
+                                        <a href="festival-details.php?id=<?php echo $festival['id']; ?>">
+                                            <?php echo $festival['name']; ?>
+                                        </a>
+                                    </h3>
+                                    <p class="event-text">
+                                        <?php echo $festival['description']; ?>
+                                    </p>
+                                    <div class="event-footer">
+                                        <a href="festival-details.php?id=<?php echo $festival['id']; ?>"
+                                            class="event-link">Tickets & Details</a>
+                                        <span class="event-price">Price: <span>&#8377
+                                                <?php echo $festival['price']; ?>
+                                            </span></span>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         <?php } ?>
                     </div>
                     <div class="row justify-content-center">
@@ -230,8 +232,6 @@
       include 'components/footer.php'
     ?>
     <!-- Footer Area End -->
-
-
 
     <?php
       include 'components/scripts.php'
