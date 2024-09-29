@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-auto">
                         <div class="d-none d-xl-inline-flex">
-                            <a href="about.html" class="vs-btn" tabindex="0">
+                            <a href="events.php" class="vs-btn" tabindex="0">
                                 Book Tickets
                             </a>
                         </div>
@@ -68,6 +68,8 @@
                     </div>
                 </div>
             </div>
+
+
             <!-- Header Area -->
             <div class="sticky-wrapper">
                 <div class="sticky-active">
@@ -103,12 +105,6 @@
                             <div class="col-auto">
                                 <div class="header-btns">
                                     <div class="d-none d-lg-block">
-                                        <!-- <form action="#" class="header-search v3">
-                                            <input type="text" placeholder="Search here...">
-                                            <button type="submit" aria-label="button">
-                                                <img src="assets/img/icons/e-2-2.svg" alt="icon">
-                                            </button>
-                                        </form> -->
                                     </div>
                                     <div class="d-none d-lg-inline-block">
                                         <button class="sideMenuToggler">

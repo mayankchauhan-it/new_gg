@@ -5,8 +5,8 @@
           <div class="overlay"></div>
           <div class="hero-bg" data-bg-src="assets/img/a.jpg"></div>
           <div class="container">
-            <div class="row justify-content-between">
-              <div class="col-lg-6">
+            <div class="row justify-content-between align-items-center ">
+              <div class="col-lg-6 mb-5">
                 <div class="hero-content">
                   <span class="hero-subtitle">Get Best event Management</span>
                   <h1 class="hero-title">Events & Festivals</h1>
@@ -25,8 +25,8 @@
                 <form class="form-style1 ajax-contact" action="https://html.vecurosoft.com/eventino/demo/mail.php" method="post">
                   <img src="assets/img/shapes/f-1-1.png" alt="form shape" class="shape-1">
                   <img src="assets/img/shapes/f-1-2.png" alt="form shape" class="shape-2">
-                  <h3 class="title">Register Now</h3>
-                  <span class="subtitle">Make A Booking</span>
+                  <h3 class="title">Inquire Now</h3>
+                  <span class="subtitle">Request for call back</span>
                   <div class="row gx-20">
                     <div class="col-md-12 form-group">
                       <input class="form-control" type="text" name="fname" id="funame" placeholder="Full Name">
@@ -38,27 +38,10 @@
                       <input class="form-control" type="tel" name="tel" id="tel" placeholder="Phone Number">
                     </div>
                     <div class="col-md-12 form-group">
-                      <select class="form-control" name="subject" id="subject">
-                        <option value="Choose Package">Choose Package</option>
-                        <option value="Oil Change">Oil Change</option>
-                        <option value="Tire Rotation">Tire Rotation</option>
-                        <option value="Brake Inspection">Brake Inspection</option>
-                        <option value="Engine Tune-Up">Engine Tune-Up</option>
-                        <option value="Transmission Flush">Transmission Flush</option>
-                      </select>
+                      <textarea class="form-control" name="message" id="message">Message</textarea>
                     </div>
                     <div class="col-md-12 form-group">
-                      <select class="form-control" name="subject" id="subject">
-                        <option value="Ticket Quantity">Ticket Quantity</option>
-                        <option value="Oil Change">Oil Change</option>
-                        <option value="Tire Rotation">Tire Rotation</option>
-                        <option value="Brake Inspection">Brake Inspection</option>
-                        <option value="Engine Tune-Up">Engine Tune-Up</option>
-                        <option value="Transmission Flush">Transmission Flush</option>
-                      </select>
-                    </div>
-                    <div class="col-md-12 form-group">
-                      <button class="vs-btn style2" type="submit">Register Now</button>
+                      <button class="vs-btn style2" type="submit">Submit</button>
                     </div>
                   </div>
                 </form>

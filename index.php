@@ -112,16 +112,6 @@
             <h2 class="sec-title">Discover Unique Experiences with Global Gathering Services</h2>
           </div>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <div class="sec-btns style1">
-            <button class="vs-btn" data-slick-prev="#service-slider1">
-              <i class="far fa-arrow-left"></i>
-            </button>
-            <button class="vs-btn" data-slick-next="#service-slider1">
-              <i class="far fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
       </div>
       <div class="row vs-carousel" data-slide-show="4" data-lg-slide-show="3" data-md-slide-show="2"
         data-sm-slide-show="1" id="service-slider1">
@@ -271,7 +261,7 @@
         </div>
         <div class="col-auto">
           <div class="d-inline-flex pt-10 title-area">
-            <a href="event.html" class="vs-btn">View All Events</a>
+            <a href="events.php" class="vs-btn">View All Events</a>
           </div>
         </div>
       </div>

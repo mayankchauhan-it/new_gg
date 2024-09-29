@@ -1,3 +1,43 @@
+<?php
+include './php_files/db_connections.php';
+
+$festival_id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
+$festival_query = "
+        SELECT 
+            f.festival_id AS id, 
+            f.festival_name AS name, 
+            f.festival_description AS description, 
+            f.start_date AS date, 
+            '08:00:00' AS time, 
+            f.venue, 
+            f.price, 
+            f.image, 
+            c.category_name AS category 
+        FROM 
+            festivals f 
+        JOIN 
+            categories c ON f.category_id = c.category_id 
+        WHERE 
+            f.festival_id = $festival_id
+    ";
+
+$festival_result = $conn->query($festival_query);
+$festival = $festival_result->fetch_assoc();
+
+if (!$festival) {
+    echo "Festival not found!";
+    exit;
+}
+
+
+$date = new DateTime($festival['date']);
+$formatted_date = $date->format('d/m/Y');
+
+
+$original_date = $festival['date'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,45 +136,10 @@
     <!-- Slider Section -->
 
     <!-- Festivals Grid -->
-    <?php
-    include './php_files/db_connections.php'; 
-
-    $festival_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-
-    $festival_query = "
-        SELECT 
-            f.festival_id AS id, 
-            f.festival_name AS name, 
-            f.festival_description AS description, 
-            f.start_date AS date, 
-            '08:00:00' AS time, 
-            f.venue, 
-            f.price, 
-            f.image, 
-            c.category_name AS category 
-        FROM 
-            festivals f 
-        JOIN 
-            categories c ON f.category_id = c.category_id 
-        WHERE 
-            f.festival_id = $festival_id
-    ";
-
-    $festival_result = $conn->query($festival_query);
-    $festival = $festival_result->fetch_assoc();
-
-    if (!$festival) {
-        echo "Festival not found!";
-        exit;
-    }
+    
 
 
-    $date = new DateTime($festival['date']);
-    $formatted_date = $date->format('d/m/Y'); 
 
-
-    $original_date = $festival['date']; 
-    ?>
     <div class="space-top space-extra-bottom">
         <div class="container">
             <div class="row">

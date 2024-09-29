@@ -88,8 +88,8 @@ $all_data = array_merge($events, $festivals);
                 </div>
             <?php } ?>
 
-            <?php 
-            $limited_festival = array_slice($events, 0, 6);
+            <?php
+            $limited_festival = array_slice($festivals, 0, 6);
             // Iterate through all festivals
             foreach ($limited_festival as $festival) { ?>
                 <div class="col-md-6 col-lg-4 filter-item Festival"> <!-- Change the class to Festival -->
