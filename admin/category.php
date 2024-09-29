@@ -1,3 +1,20 @@
+<?php
+include('../php_files/db_connections.php');
+
+$sql = "SELECT * FROM categories";
+$result = $conn->query($sql);
+
+$categoryData = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $categoryData[] = $row;
+    }
+} else {
+    echo "0 results";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +41,6 @@
             white-space: nowrap;
             /* Allow normal wrapping */
         }
-
-        
     </style>
 </head>
 
@@ -71,59 +86,66 @@
                             </tr>
                         </thead>
                         <tbody class="list">
-                            <tr>
-                                <td class="align-middle ps-3 category w-25">Music</td>
-
-                                <td class="align-middle white-space-nowrap pe-0">
-                                    <div class="btn-reveal-trigger position-static"><button
-                                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs-10"
-                                            type="button" data-bs-toggle="dropdown" data-boundary="window"
-                                            aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
-                                            <svg class="svg-inline--fa fa-ellipsis fs-10" aria-hidden="true"
-                                                focusable="false" data-prefix="fas" data-icon="ellipsis" role="img"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-                                                data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                    d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
-                                                href="#!">View</a>
-                                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
-                                                href="#!">Remove</a>
+                            <?php foreach ($categoryData as $category): ?>
+                                <tr>
+                                    <td class="align-middle ps-3 category w-25"><?php echo $category['category_name']; ?>
+                                    </td>
+                                    <td class="align-middle white-space-nowrap pe-0">
+                                        <div class="btn-reveal-trigger position-static">
+                                            <button
+                                                class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs-10"
+                                                type="button" data-bs-toggle="dropdown" data-boundary="window"
+                                                aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
+                                                <svg class="svg-inline--fa fa-ellipsis fs-10" aria-hidden="true"
+                                                    focusable="false" data-prefix="fas" data-icon="ellipsis" role="img"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                                    data-fa-i2svg="">
+                                                    <path fill="currentColor"
+                                                        d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end py-2">
+                                                <a class="dropdown-item" href="#!">View</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item text-danger" href="#!">Remove</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="d-flex justify-content-between mt-3"><span class="d-none d-sm-inline-block"
                         data-list-info="data-list-info">1 to 5 <span class="text-body-tertiary"> Items of
                         </span>43</span>
-                    <div class="d-flex"><button class="page-link disabled" data-list-pagination="prev" disabled=""><svg
+                    <div class="d-flex">
+                        <button class="page-link disabled" data-list-pagination="prev" disabled=""><svg
                                 class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false"
                                 data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 320 512" data-fa-i2svg="">
                                 <path fill="currentColor"
                                     d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z">
                                 </path>
-                            </svg><!-- <span class="fas fa-chevron-left"></span> Font Awesome fontawesome.com --></button>
+                            </svg>
+                        </button>
                         <ul class="mb-0 pagination">
                             <li class="active"><button class="page" type="button" data-i="1" data-page="5">1</button>
                             </li>
                             <li><button class="page" type="button" data-i="2" data-page="5">2</button></li>
                             <li><button class="page" type="button" data-i="3" data-page="5">3</button></li>
                             <li class="disabled"><button class="page" type="button">...</button></li>
-                        </ul><button class="page-link pe-0" data-list-pagination="next"><svg
+                        </ul>
+                        <button class="page-link pe-0" data-list-pagination="next"><svg
                                 class="svg-inline--fa fa-chevron-right" aria-hidden="true" focusable="false"
                                 data-prefix="fas" data-icon="chevron-right" role="img"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
                                 <path fill="currentColor"
                                     d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z">
                                 </path>
-                            </svg><!-- <span class="fas fa-chevron-right"></span> Font Awesome fontawesome.com --></button>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
