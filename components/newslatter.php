@@ -2,7 +2,7 @@
 <div class="newsletter-layout1">
     <div class="overlay"></div>
     <div class="container">
-      <form action="https://html.vecurosoft.com/eventino/demo/mail.php" class="newsletter-form1">
+      <form action="#" class="newsletter-form1">
         <img src="assets/img/shapes/ns-1-1.png" alt="shape" class="shape position-absolute top-0 start-0">
         <img src="assets/img/shapes/ns-1-2.png" alt="shape" class="shape position-absolute bottom-0 end-0">
         <div class="row g-4 justify-content-between align-items-center">
