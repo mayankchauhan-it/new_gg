@@ -24,13 +24,9 @@
 
 <body class="homepage2">
     <!-- Pre Loader -->
-    <div class="preloader">
-        <button class="vs-btn preloaderCls">Cancel Preloader </button>
-        <div class="preloader-inner">
-            <img src="assets/images/gg-icon.png" alt="logo">
-            <span class="loader"></span>
-        </div>
-    </div>
+    <?php
+    include 'components/preloader.php'
+        ?>
     <!-- Pre Loader -->
 
     <!-- header component -->
@@ -146,7 +142,7 @@
                                     <img src="assets/img/<?php echo $festival['image']; ?>"
                                         alt="<?php echo $festival['name']; ?>">
                                     <div class="event-tags">
-                                        <a href="event-details.html">Festival</a>
+                                        <a href="#">Festival</a>
                                     </div>
                                     <div class="event-date">
                                         <span>

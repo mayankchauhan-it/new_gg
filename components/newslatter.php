@@ -2,7 +2,8 @@
 <div class="newsletter-layout1">
     <div class="overlay"></div>
     <div class="container">
-      <form action="#" class="newsletter-form1">
+      <form action="https://api.web3forms.com/submit" method="POST" class="newsletter-form1">
+        <input type="hidden" name="access_key" value="bc7b6403-ac79-487e-a982-71f20eff30f6">
         <img src="assets/img/shapes/ns-1-1.png" alt="shape" class="shape position-absolute top-0 start-0">
         <img src="assets/img/shapes/ns-1-2.png" alt="shape" class="shape position-absolute bottom-0 end-0">
         <div class="row g-4 justify-content-between align-items-center">

@@ -147,8 +147,8 @@
                                     <img src="assets/img/<?php echo $event['image']; ?>"
                                         alt="<?php echo $event['name']; ?>">
                                     <div class="event-tags">
-                                        <a href="event-details.html">
-                                            <?php echo $event['category_id']; ?>
+                                        <a href="#">
+                                            Events
                                         </a>
                                     </div>
                                     <div class="event-date">
@@ -181,7 +181,7 @@
                                         <?php echo $event['description']; ?>
                                     </p>
                                     <div class="event-footer">
-                                        <a href="festival-details.php?id=<?php echo $event['id']; ?>" class="event-link">Tickets & Details</a>
+                                        <a href="event-detail.php?id=<?php echo $event['id']; ?>" class="event-link">Tickets & Details</a>
                                         <span class="event-price">Price: <span>&#8377
                                                 <?php echo $event['price']; ?>
                                             </span></span>

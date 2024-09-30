@@ -18,6 +18,7 @@
     <link href="assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
     <link href="assets/css/user-rtl.min.css" type="text/css" rel="stylesheet" id="user-style-rtl">
     <link href="assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script>
       var phoenixIsRTL = window.config.config.phoenixIsRTL;
       if (phoenixIsRTL) {

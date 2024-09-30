@@ -93,7 +93,7 @@ if (isset($_GET['delete_booking'])) {
     } else {
         echo "Error deleting record: " . $conn->error;
     }
-    header('Location: booking_form.php');
+    header('Location: ../admin/bookings.php');
     exit();
 }
 

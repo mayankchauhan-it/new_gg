@@ -14,7 +14,7 @@ if (isset($_POST['create_category'])) {
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-    header('Location: ../admin_files/category_form.php');  // Redirect back to form
+    header('Location: ../admin/category.php');  // Redirect back to form
     exit();
 }
 
@@ -30,7 +30,7 @@ if (isset($_GET['delete_category'])) {
     } else {
         echo "Error deleting category: " . $conn->error;
     }
-    header('Location: ../admin_files/category_form.php');  // Redirect back to form
+    header('Location: ../admin/category.php');  // Redirect back to form
     exit();
 }
 
@@ -47,7 +47,7 @@ if (isset($_POST['update_category'])) {
     } else {
         echo "Error updating category: " . $conn->error;
     }
-    header('Location: ../admin_files/category_form.php');  // Redirect back to form
+    header('Location: ../admin/category.php');  // Redirect back to form
     exit();
 }
 

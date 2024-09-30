@@ -172,7 +172,6 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script>
-        // JavaScript to populate modal fields dynamically
         $('#editCategoryModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget); // Button that triggered the modal
             var category_id = button.data('id'); // Extract info from data-* attributes

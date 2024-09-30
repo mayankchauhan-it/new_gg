@@ -55,7 +55,7 @@
                             <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-events">
                                 <li class="collapsed-nav-item-title d-none">Events</li>
                                 <li class="nav-item"><a class="nav-link"
-                                        href="https://prium.github.io/phoenix/v1.18.0/apps/events/create-an-event.html">
+                                        href="event_add.php">
                                         <div class="d-flex align-items-center"><span class="nav-link-text">Create an event</span></div>
                                     </a><!-- more inner pages-->
                                 </li>
@@ -82,7 +82,7 @@
                             <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse" id="nv-festivals">
                                 <li class="collapsed-nav-item-title d-none">Festival</li>
                                 <li class="nav-item"><a class="nav-link"
-                                        href="https://prium.github.io/phoenix/v1.18.0/apps/events/create-an-event.html">
+                                        href="festival_add.php">
                                         <div class="d-flex align-items-center"><span class="nav-link-text">Create an
                                                 Festival</span></div>
                                     </a><!-- more inner pages-->

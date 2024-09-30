@@ -29,6 +29,5 @@
 <!-- Slick Slider -->
 <link rel="stylesheet" href="assets/css/slick.min.css">
 <!-- Custom Phone Number Input -->
-<link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/intl-tel-input%4023.7.3/build/css/intlTelInput.css">
 <!-- Theme Custom CSS -->
 <link rel="stylesheet" href="assets/css/style.css">

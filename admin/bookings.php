@@ -1,10 +1,33 @@
+<?php
+include('../php_files/db_connections.php');
+
+// $sql = "SELECT * FROM booking";
+$sql = "SELECT b.*, e.event_name, f.festival_name 
+        FROM booking b 
+        LEFT JOIN events e ON b.event_id = e.event_id 
+        LEFT JOIN festivals f ON b.festival_id = f.festival_id";
+$result = $conn->query($sql);
+
+$bookingData = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $bookingData[] = $row;
+    }
+} else {
+    echo "0 results";
+}
+
+$pageName = "Booking";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Users - Global Gathering</title>
+    <title>Admin - <?php echo $pageName ?> - Global Gathering</title>
     <?php include 'components/head.php' ?>
 
     <style>
@@ -24,8 +47,6 @@
             white-space: nowrap;
             /* Allow normal wrapping */
         }
-
-        
     </style>
 </head>
 
@@ -54,101 +75,127 @@
 
             <!-- Change the data-sort here to make search filter active -->
             <div id="tableExample3"
-                data-list="{&quot;valueNames&quot;:[&quot;id&quot;,&quot;name&quot;,&quot;password&quot;,&quot;email&quot;,&quot;phone_no&quot;,&quot;address&quot;,&quot;city&quot;,&quot;is_admin&quot;],&quot;page&quot;:5,&quot;pagination&quot;:true}">
+                data-list="{&quot;valueNames&quot;:[&quot;full_name&quot;,&quot;email&quot;,&quot;mobile_no&quot;,&quot;address&quot;,&quot;city&quot;,&quot;event_id&quot;,&quot;festival_id&quot;,&quot;ticket_price&quot;,&quot;booking_date&quot;,&quot;quantity&quot;],&quot;page&quot;:5,&quot;pagination&quot;:true}">
 
                 <div class="search-box mb-3">
-                    <form class="position-relative"><input class="form-control search-input search form-control-sm"
-                            type="search" placeholder="Search" aria-label="Search">
+                    <form class="position-relative">
+                        <input class="form-control search-input search form-control-sm" type="search"
+                            placeholder="Search" aria-label="Search">
                         <span class="fas fa-search search-box-icon"></span>
                     </form>
                 </div>
-                <div class="table-responsive">
-                    <table class="table table-striped table-sm fs-9 mb-0">
-                        <thead>
-                            <tr>
-                                <th class="sort border-top border-translucent ps-3" data-sort="id">ID</th>
-                                <th class="sort border-top" data-sort="name">Name</th>
-                                <th class="sort border-top" data-sort="email">Email</th>
-                                <th class="sort border-top" data-sort="phone_no">Phone No</th>
-                                <th class="sort border-top " data-sort="address">Address</th>
-                                <th class="sort border-top" data-sort="city">City</th>
-                                <th class="sort border-top" data-sort="event">Event</th>
-                                <th class="sort border-top" data-sort="festival">Festival</th>
-                                <th class="sort border-top" data-sort="price">Price</th>
-                                <th class="sort border-top" data-sort="booking-date">Booking Date</th>
-                                <th class="sort border-top" data-sort="quantity">Quantity</th>
-                                <th class="sort text-end align-middle pe-0 border-top" scope="col">ACTION</th>
-                            </tr>
-                        </thead>
-                        <tbody class="list">
-                            <tr>
-                                <td class="align-middle ps-3 id">12</td>
-                                <td class="align-middle ps-3 name">Anna</td>
-                                <td class="align-middle email">anna@example.com</td>
-                                <td class="align-middle phone_no">8511583131</td>
-                                <td class="align-middle address custom-address-width">A20, Ayodhya Chowk, Ayodhya
-                                    Residency, Rajkot</td>
-                                <td class="align-middle city">Rajkot</td>
-                                <td class="align-middle festival">Yes</td>
-                                <td class="align-middle event">-</td>
-                                <td class="align-middle price">125</td>
-                                <td class="align-middle booking-date">25-09-2024</td>
-                                <td class="align-middle quantity">2</td>
-                                <td class="align-middle white-space-nowrap text-end pe-0">
-                                    <div class="btn-reveal-trigger position-static"><button
-                                            class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs-10"
-                                            type="button" data-bs-toggle="dropdown" data-boundary="window"
-                                            aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
-                                            <svg class="svg-inline--fa fa-ellipsis fs-10" aria-hidden="true"
-                                                focusable="false" data-prefix="fas" data-icon="ellipsis" role="img"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-                                                data-fa-i2svg="">
-                                                <path fill="currentColor"
-                                                    d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item"
-                                                href="#!">View</a>
-                                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
-                                                href="#!">Remove</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                <div id="tableExample3"
+                    data-list="{&quot;valueNames&quot;:[&quot;id&quot;,&quot;full_name&quot;,&quot;email&quot;,&quot;mobile_no&quot;,&quot;address&quot;,&quot;city&quot;,&quot;event_id&quot;,&quot;festival_id&quot;,&quot;ticket_price&quot;,&quot;booking_date&quot;,&quot;quantity&quot;,&quot;status&quot;],&quot;page&quot;:5,&quot;pagination&quot;:true}">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm fs-9 mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center sort border-top border-translucent ps-3"
+                                        data-sort="full_name">Full Name
+                                    </th>
+                                    <th class="text-center sort border-top" data-sort="email">Email</th>
+                                    <th class="text-center sort border-top" data-sort="mobile_no">Mobile No</th>
+                                    <th class="text-center sort border-top" data-sort="address">Address</th>
+                                    <th class="text-center sort border-top" data-sort="city">City</th>
+                                    <th class="text-center sort border-top" data-sort="event_id">Event</th>
+                                    <th class="text-center sort border-top" data-sort="festival_id">Festival</th>
+                                    <th class="text-center sort border-top" data-sort="ticket_price">Ticket Price</th>
+                                    <th class="text-center sort border-top" data-sort="booking_date">Booking Date</th>
+                                    <th class="text-center sort border-top" data-sort="quantity">Quantity</th>
+                                    <!-- <th class="sort border-top" data-sort="status">Status</th> -->
+                                    <th class="sort text-end align-middle pe-0 border-top" scope="col">ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody class="list">
+                                <?php foreach ($bookingData as $booking) { ?>
+                                    <tr>
+                                        <td class="align-middle ps-3 full_name"><?php echo $booking['full_name']; ?></td>
+                                        <td class="align-middle email"><?php echo $booking['email']; ?></td>
+                                        <td class="align-middle mobile_no"><?php echo $booking['mobile_no']; ?></td>
+                                        <td class="align-middle address"><?php echo $booking['address']; ?></td>
+                                        <td class="align-middle city"><?php echo $booking['city']; ?></td>
+                                        <td class="align-middle event_name">
+                                            <?php echo $booking['event_name'] ? $booking['event_name'] : '-'; ?>
+                                        </td>
+                                        <td class="align-middle festival_name">
+                                            <?php echo $booking['festival_name'] ? $booking['festival_name'] : '-'; ?>
+                                        </td>
+                                        <td class="align-middle ticket_price"><?php echo $booking['ticket_price']; ?></td>
+                                        <td class="align-middle booking_date">
+                                            <?php echo date('d-m-Y', strtotime($booking['booking_date'])); ?>
+                                        </td>
+                                        <td class="align-middle quantity text-center"><?php echo $booking['quantity']; ?>
+                                        </td>
+                                        <!-- <td class="align-middle status"><?php echo $booking['status']; ?></td> -->
+                                        <td class="align-middle white-space-nowrap text-end pe-0">
+                                            <div class="btn-reveal-trigger position-static">
+                                                <button
+                                                    class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs-10"
+                                                    type="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false" data-bs-reference="parent">
+                                                    <svg class="svg-inline--fa fa-ellipsis fs-10" aria-hidden="true"
+                                                        focusable="false" data-prefix="fas" data-icon="ellipsis" role="img"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                        <path fill="currentColor"
+                                                            d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z">
+                                                        </path>
+                                                    </svg>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end py-2">
+                                                    <a class="dropdown-item text-danger"
+                                                        href="../php_files/booking_crud.php?delete_booking=<?php echo $booking['booking_id'] ?>">Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                            </table>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-between mt-3"><span class="d-none d-sm-inline-block"
-                        data-list-info="data-list-info">1 to 5 <span class="text-body-tertiary"> Items of
-                        </span>43</span>
-                    <div class="d-flex"><button class="page-link disabled" data-list-pagination="prev" disabled=""><svg
-                                class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false"
+
+                <div class="d-flex justify-content-between mt-3">
+                    <span class="d-none d-sm-inline-block" data-list-info="data-list-info">1 to 5 <span
+                            class="text-body-tertiary"> Items of </span>43</span>
+                    <div class="d-flex">
+                        <button class="page-link disabled" data-list-pagination="prev" disabled="">
+                            <svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false"
                                 data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 320 512" data-fa-i2svg="">
                                 <path fill="currentColor"
                                     d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z">
                                 </path>
-                            </svg><!-- <span class="fas fa-chevron-left"></span> Font Awesome fontawesome.com --></button>
+                            </svg>
+                        </button>
+
                         <ul class="mb-0 pagination">
-                            <li class="active"><button class="page" type="button" data-i="1" data-page="5">1</button>
+                            <li class="active">
+                                <button class="page" type="button" data-i="1" data-page="5">1</button>
                             </li>
-                            <li><button class="page" type="button" data-i="2" data-page="5">2</button></li>
-                            <li><button class="page" type="button" data-i="3" data-page="5">3</button></li>
-                            <li class="disabled"><button class="page" type="button">...</button></li>
-                        </ul><button class="page-link pe-0" data-list-pagination="next"><svg
-                                class="svg-inline--fa fa-chevron-right" aria-hidden="true" focusable="false"
+                            <li>
+                                <button class="page" type="button" data-i="2" data-page="5">2</button>
+                            </li>
+                            <li>
+                                <button class="page" type="button" data-i="3" data-page="5">3</button>
+                            </li>
+                            <li class="disabled">
+                                <button class="page" type="button">...</button>
+                            </li>
+                        </ul>
+
+                        <button class="page-link pe-0" data-list-pagination="next">
+                            <svg class="svg-inline--fa fa-chevron-right" aria-hidden="true" focusable="false"
                                 data-prefix="fas" data-icon="chevron-right" role="img"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
                                 <path fill="currentColor"
-                                    d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z">
+                                    d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5 12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z">
                                 </path>
-                            </svg><!-- <span class="fas fa-chevron-right"></span> Font Awesome fontawesome.com --></button>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
-
-
             <?php include 'components/footer.php' ?>
         </div>
     </main>
